@@ -1,6 +1,55 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Lato', sans-serif;
-  color: #222;
+  color: #393E41;
+}
+
+.board {
+  width: 100%;
+  table-layout: fixed;
+  font-size: 1.3em;
+  border-spacing: 8px;
+}
+
+.board td {
+  text-align: center;
+  height: 8vw;
+  padding: 4px;
+  background: #F6F7EB;
+  transition: all .3s ease;
+}
+
+.board td.team0 {
+  background: #DA4167;
+  color: #fff;
+}
+
+.board td.team1 {
+  background: #3F88C5;
+  color: #fff;
+}
+
+.board td.neutral {
+  background: #F6D8AE;
+}
+
+.board td.black {
+  background: #393E41;
+  color: #fff;
+}
+
+button.transparent {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  cursor: pointer;
 }
