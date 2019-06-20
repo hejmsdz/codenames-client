@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import Board from '../components/Board';
 
 const Game = ({
+  client,
   board,
   clickable,
 }) => (
   <main>
     <Board
       board={board}
-      onClick={clickable ? (i, j) => console.log('clicked', {i, j}) : null}
+      onClick={clickable ? (i, j) => client.click(i, j) : null}
     />
   </main>
 );

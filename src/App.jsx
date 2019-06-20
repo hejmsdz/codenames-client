@@ -1,25 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Provider } from 'react-redux';
 
 import Game from './containers/Game';
 import store from './store';
+import Client from './client';
 
-store.dispatch({
-  type: 'START',
-  words: [
-    ['soul', 'pound', 'state', 'microscope', 'sub'],
-    ['kid', 'mole', 'Europe', 'pitch', 'hawk'],
-    ['chest', 'flute', 'triangle', 'ice cream', 'pass'],
-    ['dwarf', 'change', 'life', 'satellite', 'rabbit'],
-    ['thumb', 'cat', 'bar', 'novel', 'box'],
-  ],
-  team: 0,
-  turn: 0,
-  master: false,
-});
+export default function () {
+  const [client, setClient] = useState(null);
+  useEffect(() => {
+    setClient(new Client('ws://localhost:8000/', store.dispatch));
+  }, []);
 
-export default () => (
-  <Provider store={store}>
-    <Game />
-  </Provider>
-);
+  return (
+    <Provider store={store}>
+      <Game client={client} />
+    </Provider>
+  );
+};
