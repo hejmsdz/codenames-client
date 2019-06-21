@@ -1,10 +1,8 @@
-const initialState = -1;
+const initialState = [];
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'START':
-    case 'REVEAL':
-    case 'PASS':
-      return action.turn;
+    case 'PLAYERS':
+      return action.players;
     default:
       return state;
   }
