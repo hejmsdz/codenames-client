@@ -7,12 +7,19 @@ const Game = ({
   client,
   board,
   clickable,
+  team,
+  myTurn,
 }) => (
   <main>
     <Board
       board={board}
       onClick={clickable ? (i, j) => client.click(i, j) : null}
     />
+    <p>
+      Team {['red', 'blue'][team]}.
+      {myTurn && 'Your turn.'}
+      {clickable && <button onClick={() => client.pass()}>Pass</button>}
+    </p>
   </main>
 );
 
@@ -26,5 +33,7 @@ const mapStateToProps = state => ({
     ),
   ),
   clickable: !state.master && state.turn === state.team,
+  team: state.team,
+  myTurn: state.turn === state.team,
 });
 export default connect(mapStateToProps, null)(Game);

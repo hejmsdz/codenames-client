@@ -17,6 +17,10 @@ class Client {
   click(i, j) {
     this.send({ type: 'CLICK', i, j });
   }
+
+  pass() {
+    this.send({ type: 'PASS' });
+  }
 }
 
 export default Client;
