@@ -1,8 +1,10 @@
 class Client {
-  constructor(url, dispatch) {
+  constructor(url, playerName, dispatch) {
     this.ws = new WebSocket(url);
+    this.playerName = playerName;
     this.dispatch = dispatch;
     this.ws.onmessage = this.receive.bind(this);
+    this.ws.onopen = this.join.bind(this);
   }
 
   send(object) {
@@ -12,6 +14,10 @@ class Client {
   receive(message) {
     const action = JSON.parse(message.data);
     this.dispatch(action);
+  }
+
+  join() {
+    this.send({ type: 'JOIN', playerName: this.playerName });
   }
 
   click(i, j) {
