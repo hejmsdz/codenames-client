@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Players from '../components/Players';
 import Board from '../components/Board';
 
 const Game = ({
@@ -20,10 +21,11 @@ const Game = ({
         onClick={clickable ? (i, j) => client.click(i, j) : null}
       />
     ) : (
-      <React.Fragment>
-        <pre>{JSON.stringify(players, null, 2)}</pre>
-        <button onClick={() => client.start()} disabled={!canStart}>Start game</button>
-      </React.Fragment>
+      <Players
+        players={players}
+        canStart={canStart}
+        onStart={() => client.start()}
+      />
     )}
 
     <p>

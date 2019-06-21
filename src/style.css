@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,6 +7,10 @@
 body {
   font-family: 'Lato', sans-serif;
   color: #393E41;
+}
+
+.master {
+  font-weight: bold;
 }
 
 .board {
