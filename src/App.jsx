@@ -9,7 +9,7 @@ import Client from './client';
 export default function () {
   const [client, setClient] = useState(null);
   const handleJoin = (room, playerName) => {
-    setClient(new Client(`ws://localhost:8000/${room}`, playerName, store.dispatch));
+    setClient(new Client(`ws://${process.env.REACT_APP_WEBSOCKET}/${room}`, playerName, store.dispatch));
   };
 
   return (
