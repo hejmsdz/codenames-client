@@ -24,7 +24,9 @@ const Game = ({
       <Players
         players={players}
         canStart={canStart}
+        team={team}
         onStart={() => client.start()}
+        onSetTeam={team => client.setTeam(team)}
       />
     )}
 

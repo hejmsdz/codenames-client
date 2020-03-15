@@ -1,12 +1,18 @@
 import React from 'react';
 
-export default ({ players, canStart, onStart }) => (
+export default ({ players, canStart, onStart, onSetTeam, team }) => (
   <React.Fragment>
     <table>
       <thead>
         <tr>
-          <th>Team red</th>
-          <th>Team blue</th>
+          <th>
+            Team red
+            {team !== 0 && <button onClick={() => onSetTeam(0)}>Join</button>}
+          </th>
+          <th>
+            Team blue
+            {team !== 1 && <button onClick={() => onSetTeam(1)}>Join</button>}
+          </th>
         </tr>
       </thead>
       <tbody>

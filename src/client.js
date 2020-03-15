@@ -20,6 +20,10 @@ class Client {
     this.send({ type: 'JOIN', playerName: this.playerName });
   }
 
+  setTeam(team) {
+    this.send({ type: 'SET_TEAM', team });
+  }
+
   start() {
     this.send({ type: 'START' });
   }
