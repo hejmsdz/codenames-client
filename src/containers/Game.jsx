@@ -16,10 +16,17 @@ const Game = ({
 }) => (
   <main>
     {started ? (
-      <Board
-        board={board}
-        onClick={clickable ? (i, j) => client.click(i, j) : null}
-      />
+      <React.Fragment>
+        <Board
+          board={board}
+          onClick={clickable ? (i, j) => client.click(i, j) : null}
+        />
+        <p>
+          Team {['red', 'blue'][team]}.
+          {myTurn && 'Your turn.'}
+          {clickable && <button onClick={() => client.pass()}>Pass</button>}
+        </p>
+      </React.Fragment>
     ) : (
       <Players
         players={players}
@@ -29,12 +36,6 @@ const Game = ({
         onSetTeam={team => client.setTeam(team)}
       />
     )}
-
-    <p>
-      Team {['red', 'blue'][team]}.
-      {myTurn && 'Your turn.'}
-      {clickable && <button onClick={() => client.pass()}>Pass</button>}
-    </p>
   </main>
 );
 
