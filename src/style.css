@@ -16,13 +16,18 @@ body {
 .board {
   width: 100%;
   table-layout: fixed;
-  font-size: 1.3em;
+  font-size: 1.2em;
   border-spacing: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.board.disabled {
+  opacity: 0.7;
 }
 
 .board td {
   text-align: center;
-  height: 8vw;
+  height: 7vw;
   padding: 4px;
   background: #F6F7EB;
   transition: all .3s ease;

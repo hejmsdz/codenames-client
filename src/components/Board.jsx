@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default ({ board, onClick }) => (
-  <table className="board">
+export default ({ board, myTurn, onClick }) => (
+  <table className={`board ${!myTurn && 'disabled'}`}>
     <tbody>
       {board.map((row, i) => (
         <tr key={i}>

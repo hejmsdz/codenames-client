@@ -19,6 +19,7 @@ const Game = ({
       <React.Fragment>
         <Board
           board={board}
+          myTurn={myTurn}
           onClick={clickable ? (i, j) => client.click(i, j) : null}
         />
         <p>
