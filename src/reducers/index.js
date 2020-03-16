@@ -6,6 +6,7 @@ import master from './master';
 import turn from './turn';
 import words from './words';
 import colors from './colors';
+import revealed from './revealed';
 
 export default combineReducers({
   players,
@@ -14,4 +15,5 @@ export default combineReducers({
   turn,
   words,
   colors,
+  revealed,
 });

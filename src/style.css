@@ -52,6 +52,26 @@ body {
   color: #fff;
 }
 
+.board td.revealed {
+  background: transparent;
+}
+
+.board td.revealed.team0 {
+  color: #DA4167;
+}
+
+.board td.revealed.team1 {
+  color: #3F88C5;
+}
+
+.board td.revealed.neutral {
+  color: #F6D8AE;
+}
+
+.board td.revealed.black {
+  color: #393E41;
+}
+
 button.transparent {
   border: none;
   background: transparent;

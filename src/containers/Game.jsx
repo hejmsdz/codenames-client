@@ -12,6 +12,7 @@ const Game = ({
   board,
   clickable,
   team,
+  master,
   myTurn,
 }) => (
   <main>
@@ -20,6 +21,7 @@ const Game = ({
         <Board
           board={board}
           myTurn={myTurn}
+          master={master}
           onClick={clickable ? (i, j) => client.click(i, j) : null}
         />
         <p>
@@ -52,7 +54,8 @@ const mapStateToProps = state => ({
     (row, i) => row.map(
       (word, j) => ({
         word,
-        color: state.colors[i][j]
+        color: state.colors[i][j],
+        revealed: state.revealed[i][j],
       }),
     ),
   ),
@@ -60,6 +63,7 @@ const mapStateToProps = state => ({
   team: state.team,
   started: state.turn >= 0,
   players: state.players,
+  master: state.master,
   canStart: state.turn === -1 && readyTeams(state.players),
   myTurn: state.turn === state.team,
 });
