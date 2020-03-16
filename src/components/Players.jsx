@@ -7,11 +7,11 @@ export default ({ players, canStart, onStart, onSetTeam, team }) => (
         <tr>
           <th>
             Team red
-            {team !== 0 && <button onClick={() => onSetTeam(0)}>Join</button>}
+            <button onClick={() => onSetTeam(0)}>Join</button>
           </th>
           <th>
             Team blue
-            {team !== 1 && <button onClick={() => onSetTeam(1)}>Join</button>}
+            <button onClick={() => onSetTeam(1)}>Join</button>
           </th>
         </tr>
       </thead>
