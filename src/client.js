@@ -14,7 +14,9 @@ class Client {
 
   receive(message) {
     const action = JSON.parse(message.data);
-    this.dispatch(action);
+    if (action.type !== 'PONG') {
+      this.dispatch(action);
+    }
   }
 
   join() {
