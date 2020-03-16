@@ -6,10 +6,12 @@ import Join from './containers/Join';
 import store from './store';
 import Client from './client';
 
+const websocket = process.env.WEBSOCKET || 'ws://localhost:8000';
+
 export default function () {
   const [client, setClient] = useState(null);
   const handleJoin = (room, playerName) => {
-    setClient(new Client(`wss://${process.env.REACT_APP_WEBSOCKET}/${room}`, playerName, store.dispatch));
+    setClient(new Client(`${websocket}/${room}`, playerName, store.dispatch));
   };
 
   return (
