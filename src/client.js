@@ -5,6 +5,7 @@ class Client {
     this.dispatch = dispatch;
     this.ws.onmessage = this.receive.bind(this);
     this.ws.onopen = this.join.bind(this);
+    this.ws.onclose = this.close.bind(this);
   }
 
   send(object) {
@@ -17,9 +18,15 @@ class Client {
   }
 
   join() {
+    this.intvl = setInterval(() => this.send({ type: 'PING' }), 10000);
+
     this.send({ type: 'JOIN', playerName: this.playerName });
   }
 
+  close() {
+    clearInterval(this.intvl);
+  }
+  
   setTeam(team) {
     this.send({ type: 'SET_TEAM', team });
   }
