@@ -7,12 +7,12 @@ const DICTIONARIES = {
 
 export default ({ value, onChange }) => (
   <div>
-    <label for="dictionary">
+    <label htmlFor="dictionary">
       Language:
     </label>
     <select id="dictionary" value={value || ''} onChange={(e) => onChange(e.target.value)}>
       {Object.entries(DICTIONARIES).map(([code, name]) => (
-        <option value={code}>{name}</option>
+        <option key={code} value={code}>{name}</option>
       ))}
     </select>
   </div>
