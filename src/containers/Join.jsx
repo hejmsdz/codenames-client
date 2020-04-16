@@ -15,7 +15,7 @@ function Join({
   };
 
   return (
-    <main>
+    <main className="main">
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="room">Room:</label>

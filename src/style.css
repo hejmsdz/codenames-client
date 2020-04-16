@@ -9,6 +9,42 @@ body {
   color: #393E41;
 }
 
+.main {
+  max-width: 600px;
+  margin: auto;
+}
+
+input, button {
+  font-size: 16px;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+button {
+  cursor: pointer;
+}
+
+input, .players {
+  width: 100%;
+}
+
+.join {
+  width: 100%;
+  margin: 0;
+}
+
+.join.active {
+  font-weight: bold;
+}
+
+.join.red {
+  color: #DA4167;
+}
+
+.join.blue {
+  color: #3F88C5;
+}
+
 .master {
   font-weight: bold;
 }

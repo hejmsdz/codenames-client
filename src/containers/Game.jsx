@@ -16,37 +16,33 @@ const Game = ({
   master,
   myTurn,
   dictionary,
-}) => (
+}) => started ? (
   <main>
-    {started ? (
-      <React.Fragment>
-        <Board
-          board={board}
-          myTurn={myTurn}
-          master={master}
-          onClick={clickable ? (i, j) => client.click(i, j) : null}
-        />
-        <p>
-          Team {['red', 'blue'][team]}.
-          {myTurn && 'Your turn.'}
-          {clickable && <button onClick={() => client.pass()}>Pass</button>}
-        </p>
-      </React.Fragment>
-    ) : (
-      <React.Fragment>
-        <Players
-          players={players}
-          canStart={canStart}
-          team={team}
-          onStart={() => client.start()}
-          onSetTeam={team => client.setTeam(team)}
-        />
-        <DictionarySelector
-          value={dictionary}
-          onChange={dictionary => client.setDictionary(dictionary)}
-        />
-      </React.Fragment>
-    )}
+    <Board
+      board={board}
+      myTurn={myTurn}
+      master={master}
+      onClick={clickable ? (i, j) => client.click(i, j) : null}
+    />
+    <p>
+      Team {['red', 'blue'][team]}.
+      {myTurn && 'Your turn.'}
+      {clickable && <button onClick={() => client.pass()}>Pass</button>}
+    </p>
+  </main>
+) : (
+  <main className="main">
+    <Players
+      players={players}
+      canStart={canStart}
+      team={team}
+      onStart={() => client.start()}
+      onSetTeam={team => client.setTeam(team)}
+    />
+    <DictionarySelector
+      value={dictionary}
+      onChange={dictionary => client.setDictionary(dictionary)}
+    />
   </main>
 );
 
