@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ players, canStart, onStart, onSetTeam, team }) => (
+export default ({ players, canStart, onStart, onSetTeam,  team }) => (
   <React.Fragment>
     <table>
       <thead>

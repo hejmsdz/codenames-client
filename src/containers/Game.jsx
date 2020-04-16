@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Players from '../components/Players';
 import Board from '../components/Board';
+import DictionarySelector from '../components/DictionarySelector';
 
 const Game = ({
   client,
@@ -14,6 +15,7 @@ const Game = ({
   team,
   master,
   myTurn,
+  dictionary,
 }) => (
   <main>
     {started ? (
@@ -31,13 +33,19 @@ const Game = ({
         </p>
       </React.Fragment>
     ) : (
-      <Players
-        players={players}
-        canStart={canStart}
-        team={team}
-        onStart={() => client.start()}
-        onSetTeam={team => client.setTeam(team)}
-      />
+      <React.Fragment>
+        <Players
+          players={players}
+          canStart={canStart}
+          team={team}
+          onStart={() => client.start()}
+          onSetTeam={team => client.setTeam(team)}
+        />
+        <DictionarySelector
+          value={dictionary}
+          onChange={dictionary => client.setDictionary(dictionary)}
+        />
+      </React.Fragment>
     )}
   </main>
 );
@@ -63,6 +71,7 @@ const mapStateToProps = state => ({
   team: state.me.team,
   started: state.turn >= 0,
   players: state.players,
+  dictionary: state.dictionary,
   master: state.master,
   canStart: state.turn === -1 && readyTeams(state.players),
   myTurn: state.turn === state.me,

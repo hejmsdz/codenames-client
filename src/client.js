@@ -33,6 +33,10 @@ class Client {
     this.send({ type: 'SET_TEAM', team });
   }
 
+  setDictionary(dictionary) {
+    this.send({ type: 'SET_DICTIONARY', dictionary });
+  }
+
   start() {
     this.send({ type: 'START' });
   }
