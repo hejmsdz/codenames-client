@@ -19,11 +19,11 @@ function Join({
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="room">Room:</label>
-          <input id="room" ref={roomRef} />
+          <input id="room" ref={roomRef} required />
         </div>
         <div>
           <label htmlFor="playerName">Your name:</label>
-          <input id="playerName" ref={playerNameRef} />
+          <input id="playerName" ref={playerNameRef} required />
         </div>
         <button type="submit">Join game</button>
       </form>
