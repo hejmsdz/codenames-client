@@ -59,12 +59,12 @@ const mapStateToProps = state => ({
       }),
     ),
   ),
-  clickable: !state.master && state.turn === state.team,
-  team: state.team,
+  clickable: !state.master && state.turn === state.me.team,
+  team: state.me.team,
   started: state.turn >= 0,
   players: state.players,
   master: state.master,
   canStart: state.turn === -1 && readyTeams(state.players),
-  myTurn: state.turn === state.team,
+  myTurn: state.turn === state.me,
 });
 export default connect(mapStateToProps, null)(Game);

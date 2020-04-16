@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import activeGames from './activeGames';
 import players from './players';
-import team from './team';
+import me from './me';
 import master from './master';
 import turn from './turn';
 import words from './words';
@@ -12,8 +12,8 @@ import revealed from './revealed';
 export default combineReducers({
   activeGames,
   players,
-  team,
   master,
+  me,
   turn,
   words,
   colors,

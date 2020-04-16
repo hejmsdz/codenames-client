@@ -1,8 +1,6 @@
 const initialState = null;
-export default (state = initialState, action) => {
+export default (state = initialState, action, getState) => {
   switch (action.type) {
-    case 'START':
-      return action.team;
     default:
       return state;
   }
